@@ -80,4 +80,6 @@ parms += " -node " + node + " -server " + server
 parms += " -nouseMetaDataFromBinary"
 app = AdminApp.install("/work/config/app.ear", [parms])
 
+AdminConfig.create('HostAlias', AdminConfig.getid('/VirtualHost:default_host/'), '[[port "31230"] [hostname "*"]]')
+AdminConfig.create('HostAlias', AdminConfig.getid('/VirtualHost:admin_host/'), '[[port "31240"] [hostname "*"]]') 
 AdminConfig.save()
